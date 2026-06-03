@@ -32,18 +32,26 @@ Réforme de la Facturation Électronique (RFE), imposée aux entreprises assujet
 
 ## Structure
 
-features/
-emission/emission_facture.feature    # 5 scénarios — flux émission
-reception/reception_facture.feature  # 6 scénarios — flux réception
-src/
-steps/
-emission.steps.ts                  # Step definitions émission
-reception.steps.ts                 # Step definitions réception
-support/
-api-client.ts                      # Client HTTP Axios
-mock-server.ts                     # API RFE simulée (Express)
-hooks.ts                           # BeforeAll / AfterAll / Before
-world.ts                           # Cucumber World + JSON Schema
+```
+rfe-api-test-demo/
+├── features/
+│   ├── emission/
+│   │   └── emission_facture.feature     # 5 scénarios — flux émission
+│   └── reception/
+│       └── reception_facture.feature    # 6 scénarios — flux réception
+├── src/
+│   ├── steps/
+│   │   ├── emission.steps.ts            # Step definitions émission
+│   │   └── reception.steps.ts           # Step definitions réception
+│   └── support/
+│       ├── api-client.ts                # Client HTTP Axios
+│       ├── mock-server.ts               # API RFE simulée (Express)
+│       ├── hooks.ts                     # BeforeAll / AfterAll / Before
+│       └── world.ts                     # Cucumber World + JSON Schema
+├── cucumber.js
+├── tsconfig.json
+└── package.json
+```
 
 ---
 
