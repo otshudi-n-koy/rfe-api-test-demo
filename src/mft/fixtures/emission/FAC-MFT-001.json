@@ -1,0 +1,8 @@
+{
+  "numero_facture": "FAC-MFT-001",
+  "siren_emetteur": "123456789",
+  "siren_destinataire": "987654321",
+  "montant_ht": 1000,
+  "taux_tva": 20,
+  "format": "json"
+}

@@ -1,17 +1,23 @@
-import { setWorldConstructor, World, IWorldOptions } from '@cucumber/cucumber';
+import { setWorldConstructor, IWorldOptions } from '@cucumber/cucumber';
 import { InvoiceApiClient, InvoicePayload } from './api-client';
+import { MftClient } from '../mft/mft-client';
 import Ajv from 'ajv';
 
-export class RfeWorld extends World {
+export class RfeWorld {
   public apiClient: InvoiceApiClient;
+  public mftClient: MftClient;
   public lastResponse: any = null;
   public currentInvoice: InvoicePayload = {};
+  public currentFile: any = {};
+  public currentBatch: any[] = [];
   public authToken: string = '';
   public ajv: Ajv;
+  public parameters: any;
 
   constructor(options: IWorldOptions) {
-    super(options);
+    this.parameters = options.parameters;
     this.apiClient = new InvoiceApiClient();
+    this.mftClient = new MftClient();
     this.ajv = new Ajv({ allErrors: true });
   }
 

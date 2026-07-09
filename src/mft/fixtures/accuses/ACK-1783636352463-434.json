@@ -1,0 +1,8 @@
+{
+  "id": "ACK-1783636352463-434",
+  "filename": "FAC-MFT-001.json",
+  "status": "SUCCESS",
+  "emission_path": "C:\\Dev\\rfe-api-test-demo\\src\\mft\\fixtures\\emission\\FAC-MFT-001.json",
+  "destination_path": "C:\\Dev\\rfe-api-test-demo\\src\\mft\\fixtures\\destination\\FAC-MFT-001.json",
+  "timestamp": "2026-07-09T22:32:32.463Z"
+}
