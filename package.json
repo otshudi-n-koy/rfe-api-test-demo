@@ -5,7 +5,8 @@
     "test": "cucumber-js",
     "test:smoke": "cucumber-js --tags @smoke",
     "test:emission": "cucumber-js --tags @emission",
-    "test:reception": "cucumber-js --tags @reception"
+    "test:reception": "cucumber-js --tags @reception",
+    "test:mft": "cucumber-js --tags @mft"
   },
   "devDependencies": {
     "@types/cucumber": "^6.0.1",

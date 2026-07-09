@@ -30,6 +30,15 @@ Réforme de la Facturation Électronique (RFE), imposée aux entreprises assujet
 
 ---
 
+## Périmètres couverts
+
+| Périmètre | Scénarios | Description |
+|-----------|-----------|-------------|
+| **Émission** | 5 | Soumission de factures B2B, avoirs, validation TVA/SIREN |
+| **Réception** | 6 | Consultation, accusé de réception, rejet, gestion d'erreurs |
+| **MFT** | 6 | Transfert de fichiers, validation format, doublons, batch |
+| **Total** | **20** | **131 steps — 100% passing** |
+
 ## Structure
 
 ```
@@ -37,32 +46,39 @@ rfe-api-test-demo/
 ├── features/
 │   ├── emission/
 │   │   └── emission_facture.feature     # 5 scénarios — flux émission
-│   └── reception/
-│       └── reception_facture.feature    # 6 scénarios — flux réception
+│   ├── reception/
+│   │   └── reception_facture.feature    # 6 scénarios — flux réception
+│   └── mft/
+│       └── transfert_facture.feature    # 6 scénarios — transferts MFT
 ├── src/
 │   ├── steps/
 │   │   ├── emission.steps.ts            # Step definitions émission
-│   │   └── reception.steps.ts           # Step definitions réception
-│   └── support/
-│       ├── api-client.ts                # Client HTTP Axios
-│       ├── mock-server.ts               # API RFE simulée (Express)
-│       ├── hooks.ts                     # BeforeAll / AfterAll / Before
-│       └── world.ts                     # Cucumber World + JSON Schema
+│   │   ├── reception.steps.ts           # Step definitions réception
+│   │   └── mft.steps.ts                 # Step definitions MFT
+│   ├── support/
+│   │   ├── api-client.ts                # Client HTTP Axios
+│   │   ├── mock-server.ts               # API RFE simulée (Express)
+│   │   ├── hooks.ts                     # BeforeAll / AfterAll / Before
+│   │   └── world.ts                     # Cucumber World unifié
+│   └── mft/
+│       ├── mft-client.ts                # Client HTTP MFT
+│       ├── mock-mft-server.ts           # Serveur MFT simulé (Express)
+│       ├── mft-hooks.ts                 # Hooks MFT
+│       └── fixtures/                    # Répertoires simulés (emission/destination/accuses)
 ├── cucumber.js
 ├── tsconfig.json
 └── package.json
 ```
 
----
-
 ## Lancement
 
 ```bash
 npm install
-npm test                        # tous les tests
+npm test                        # tous les tests (20 scénarios)
 npm run test:smoke              # smoke tests uniquement
 npm run test:emission           # flux émission
 npm run test:reception          # flux réception
+npm run test:mft                # flux MFT
 ```
 
 Résultat attendu :
